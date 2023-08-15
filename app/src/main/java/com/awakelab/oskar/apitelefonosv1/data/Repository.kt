@@ -2,9 +2,11 @@ package com.awakelab.oskar.apitelefonosv1.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import com.awakelab.oskar.apitelefonosv1.data.local.DetalleEntity
 import com.awakelab.oskar.apitelefonosv1.data.local.MovilDao
 import com.awakelab.oskar.apitelefonosv1.data.local.MovilEntity
 import com.awakelab.oskar.apitelefonosv1.data.remote.DetalleApi
+import com.awakelab.oskar.apitelefonosv1.data.remote.DetalleDataClass
 import com.awakelab.oskar.apitelefonosv1.data.remote.MovilApi
 import com.awakelab.oskar.apitelefonosv1.data.remote.MovilDataClass
 
@@ -14,6 +16,8 @@ class Repository(
     private val detalleApi: DetalleApi,
 ) {
     fun obtenerMovilEntity(): LiveData<List<MovilEntity>> = movilDao.getAllMoviles()
+
+    fun obtenerDetalleEntity(id: Int): LiveData<DetalleEntity> = movilDao.getMovil(id)
 
     suspend fun obtenerMoviles() {
         val respuesta = movilApi.getData()
@@ -27,34 +31,23 @@ class Repository(
             Log.e("Repository", respuesta.errorBody().toString())
         }
     }
-/*
+
     suspend fun obtenerDetalleMovil(id: Int) {
         val res = detalleApi.getDetalleMovil(id)
-        if(res.isSuccessful){
-            val detalleEntity = res.body()
-           movilDao.insertMovil(detalleEntity)
-
+        if (res.isSuccessful) {
+            val detalleEntity = res.body()!!.copy()
+            movilDao.insertMovil(detalleEntity.transDetalle())
+        } else {
+            Log.e("Repository", res.errorBody().toString())
         }
-
     }
-
-*/
 }
 
 fun MovilDataClass.transEntity(): MovilEntity =
     MovilEntity(this.id, this.name, this.price, this.image)
 
-/*
-suspend fun obtenerMoviles() {
-    val respuesta = movilApi.getData()
-    if (respuesta.isSuccessful) {
-        val res = respuesta.body()
-        res?.let { movilApis ->
-            val movilEntity = movilApis.map { it.transEntity() }
-            movilDao.insertMoviles(movilEntity)
-        }
-    }
-}
-
-
- */
+fun DetalleDataClass.transDetalle(): DetalleEntity =
+    DetalleEntity(
+        this.id, this.name, this.price, this.image, this.description,
+        this.lastPrice, this.credit
+    )

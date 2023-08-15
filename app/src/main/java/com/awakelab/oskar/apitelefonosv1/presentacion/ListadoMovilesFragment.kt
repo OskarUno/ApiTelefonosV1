@@ -24,7 +24,7 @@ class ListadoMovilesFragment : Fragment() {
     ): View? {
 binding = FragmentListadoMovilesBinding.inflate(layoutInflater,container,false)
         initAdapter()
-        movilVM.getAllMoviles()
+        movilVM.getAllMovilesVM()
         return binding.root
     }
 

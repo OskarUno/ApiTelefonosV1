@@ -9,5 +9,14 @@
         android:id="@+id/listadoMovilesFragment"
         android:name="com.awakelab.oskar.apitelefonosv1.presentacion.ListadoMovilesFragment"
         android:label="fragment_listado_moviles"
-        tools:layout="@layout/fragment_listado_moviles" />
+        tools:layout="@layout/fragment_listado_moviles" >
+        <action
+            android:id="@+id/action_listadoMovilesFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.awakelab.oskar.apitelefonosv1.presentacion.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" />
 </navigation>

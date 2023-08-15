@@ -3,11 +3,11 @@ package com.awakelab.oskar.apitelefonosv1.data.remote
 import com.google.gson.annotations.SerializedName
 
 data class DetalleDataClass(
-    @SerializedName("id"          ) var id          : Int,
-    @SerializedName("name"        ) var name        : String,
-    @SerializedName("price"       ) var price       : Int,
-    @SerializedName("image"       ) var image       : String,
-    @SerializedName("description" ) var description : String,
-    @SerializedName("lastPrice"   ) var lastPrice   : Int,
-    @SerializedName("credit"      ) var credit      : Boolean
+    @SerializedName("id"          ) val id          : Int,
+    @SerializedName("name"        ) val name        : String,
+    @SerializedName("price"       ) val price       : Int,
+    @SerializedName("image"       ) val image       : String,
+    @SerializedName("description" ) val description : String,
+    @SerializedName("lastPrice"   ) val lastPrice   : Int,
+    @SerializedName("credit"      ) val credit      : Boolean
 )

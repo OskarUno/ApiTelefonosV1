@@ -13,17 +13,23 @@ class MovilViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: Repository
 
     fun movilLiveData() = repository.obtenerMovilEntity()
+    fun detalleLiveData(id: Int) = repository.obtenerDetalleEntity(id)
 
     init {
         val api = MovilRetroFit.getRetrofitMovil()
         val dao = MovilDataBase.getDatabase(application).getMovilDao()
         val dApi = DetalleRetroFit.getRetrofitDetalle()
-        repository = Repository(api, dao,dApi)
+        repository = Repository(api, dao, dApi)
     }
 
-    fun getAllMoviles() = viewModelScope.launch {
+    fun getAllMovilesVM() = viewModelScope.launch {
         repository.obtenerMoviles()
     }
 
+    fun getDetalleMovilVM(id: Int?) = viewModelScope.launch {
+        if (id != null) {
+            repository.obtenerDetalleMovil(id)
+        }
+    }
 
 }

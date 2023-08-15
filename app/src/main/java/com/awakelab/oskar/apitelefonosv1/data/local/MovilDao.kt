@@ -17,6 +17,6 @@ interface MovilDao {
     fun getAllMoviles(): LiveData<List<MovilEntity>>
 
     @Query("select * from tabla_movil_detalle where id = :id")
-    fun getMovil(id: Int) : LiveData<MovilEntity>
+    fun getMovil(id: Int) : LiveData<DetalleEntity>
 
 }
