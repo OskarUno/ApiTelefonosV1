@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import coil.load
 import com.awakelab.oskar.apitelefonosv1.databinding.FragmentDetalleBinding
 
 private const val ARG_PARAM1 = "id"
@@ -27,20 +28,25 @@ class DetalleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        binding = FragmentDetalleBinding.inflate(layoutInflater,container,false)
+        binding = FragmentDetalleBinding.inflate(layoutInflater, container, false)
         movilVM.getDetalleMovilVM(idParam)
         initListener()
 
         return binding.root
     }
 
-    private  fun initListener() {
-
+    private fun initListener() {
         idParam?.let { it ->
-            movilVM.detalleLiveData(it).observe(viewLifecycleOwner){
-               binding.tvNameD.text = idParam.toString()
+            movilVM.detalleLiveData(it).observe(viewLifecycleOwner) {
+                binding.tvNameD.text = it.name
+                binding.tvDescription.text = it.description
+                binding.tvPriceActualD.text = it.price.toString()
+                binding.tvLastPrice.text = it.lastPrice.toString()
+                binding.tvCredit.text = it.credit.toString()
+                binding.imgD.load(it.image)
             }
         }
+
 
     }
 
