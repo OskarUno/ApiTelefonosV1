@@ -18,5 +18,18 @@
         android:id="@+id/detalleFragment"
         android:name="com.awakelab.oskar.apitelefonosv1.presentacion.DetalleFragment"
         android:label="fragment_detalle"
-        tools:layout="@layout/fragment_detalle" />
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_detalleFragment_to_descripcionFragment"
+            app:destination="@id/descripcionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descripcionFragment"
+        android:name="com.awakelab.oskar.apitelefonosv1.presentacion.DescripcionFragment"
+        android:label="fragment_descripcion"
+        tools:layout="@layout/fragment_descripcion" >
+        <action
+            android:id="@+id/action_descripcionFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+    </fragment>
 </navigation>
