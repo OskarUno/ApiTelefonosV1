@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import com.awakelab.oskar.apitelefonosv1.data.local.DetalleEntity
 import com.awakelab.oskar.apitelefonosv1.data.local.MovilDao
 import com.awakelab.oskar.apitelefonosv1.data.local.MovilEntity
-import com.awakelab.oskar.apitelefonosv1.data.remote.DetalleApi
 import com.awakelab.oskar.apitelefonosv1.data.remote.DetalleDataClass
 import com.awakelab.oskar.apitelefonosv1.data.remote.MovilApi
 import com.awakelab.oskar.apitelefonosv1.data.remote.MovilDataClass
@@ -13,7 +12,6 @@ import com.awakelab.oskar.apitelefonosv1.data.remote.MovilDataClass
 class Repository(
     private val movilApi: MovilApi,
     private val movilDao: MovilDao,
-    private val detalleApi: DetalleApi,
 ) {
     fun obtenerDetalleEntity(id: Int): LiveData<DetalleEntity> = movilDao.getMovil(id)
     fun obtenerMovilEntity(): LiveData<List<MovilEntity>> = movilDao.getAllMoviles()
@@ -32,7 +30,7 @@ class Repository(
     }
 
     suspend fun obtenerDetalleMovil(id: Int) {
-        val res = detalleApi.getDetalleMovil(id)
+        val res = movilApi.getDataDetalle(id)
         if (res.isSuccessful) {
             val detalleEntity = res.body()!!.copy()
             movilDao.insertMovil(detalleEntity.transDetalle())
@@ -42,8 +40,9 @@ class Repository(
     }
 }
 
-fun MovilDataClass.transEntity(): MovilEntity =
-    MovilEntity(this.id, this.name, this.price, this.image)
+fun MovilDataClass.transEntity(): MovilEntity = MovilEntity(
+    this.id, this.name, this.price, this.image
+)
 
 fun DetalleDataClass.transDetalle(): DetalleEntity = DetalleEntity(
     this.id, this.name, this.price, this.image, this.description, this.lastPrice, this.credit

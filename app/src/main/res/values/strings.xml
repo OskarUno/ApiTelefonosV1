@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApiTelefonosV1</string>
+    <string name="app_name">ApiTelefonos</string>
 
     <string name="nametelefono">Nombre Teléfono</string>
     <string name="precio">Precio</string>
@@ -17,5 +17,7 @@
     <string name="contactar_al_area_de_ventas">Contactar al Area de Ventas</string>
     <string name="item_telefono">Item Telefono</string>
     <string name="tituloApp">Plaplix</string>
+    <string name="mensajeCorreo">Hola \nVi el movil %1$s de codigo %2$s y me gustaria que me contactaran a este correo o al siguiente numero _________ \n\nQuedo atento</string>
+    <string name="asuntoCorreo">Consulta %1$s id %2$s</string>
 
 </resources>

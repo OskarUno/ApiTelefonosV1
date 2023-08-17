@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import coil.load
+import com.awakelab.oskar.apitelefonosv1.R
 import com.awakelab.oskar.apitelefonosv1.databinding.FragmentDetalleBinding
 
 private const val ARG_PARAM1 = "id"
@@ -45,7 +46,6 @@ class DetalleFragment : Fragment() {
     private fun initListener() {
 
         idParam?.let { it ->
-            //   if(it != null) {
             movilVM.detalleLiveData(it).observe(viewLifecycleOwner) {
                 if (it != null) {
                     binding.tvNameD.text = it.name
@@ -59,24 +59,23 @@ class DetalleFragment : Fragment() {
                     } else {
                         binding.tvEfectivo.visibility = View.VISIBLE
                     }
+                    binding.cvContactar.setOnClickListener {
+                        val producto = binding.tvNameD.text.toString()
+                        enviarEmail(producto)
+                    }
                 }
             }
         }
-
-        binding.cvContactar.setOnClickListener {
-            val producto = binding.tvNameD.text.toString()
-            val id = binding.tvId.text.toString()
-            enviarEmail(producto)
-        }
     }
 
+    @SuppressLint("StringFormatMatches")
     private fun enviarEmail(producto: String) {
 
         val para = arrayOf("info@novaera.cl")
         val copia = arrayOf("")
-        val asunto = "Consulta " + producto + " id " + idParam
+        val asunto = getString(R.string.asuntoCorreo, producto, idParam)
         val mensaje =
-            "Hola \nVi el movil " + producto + " de codigo " + idParam + " y me gustaria que me contactaran a este correo o al siguiente numero _________ \n\nQuedo atento"
+            getString(R.string.mensajeCorreo, producto, idParam)
 
         val emailIntent = Intent(Intent.ACTION_SEND)
         Uri.parse("mailto:").also { emailIntent.data = it }
