@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApiTelefonos</string>
+    <string name="app_name">Api Telefonos</string>
 
     <string name="nametelefono">Nombre Teléfono</string>
     <string name="precio">Precio</string>
