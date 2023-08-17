@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">ApiTelefonosV1</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nametelefono">NameTelefono</string>
+
+    <string name="nametelefono">Nombre Teléfono</string>
     <string name="precio">Precio</string>
+    <string name="nombre_detalle">Nombre Detalle</string>
+    <string name="_100_000">$ 100.000</string>
+    <string name="antes">Antes</string>
+    <string name="_90_000">$ 90.000</string>
+    <string name="ahora">Ahora</string>
+    <string name="acepta_cr_dito">Acepta Crédito</string>
+    <string name="s_lo_efectivo">Sólo Efectivo</string>
+    <string name="idproducto">idProducto</string>
+    <string name="imagen_telefono">Imagen Teléfono</string>
+    <string name="imagen_mail">Imagen Mail</string>
+    <string name="descripcion">Descripción</string>
+    <string name="contactar_al_area_de_ventas">Contactar al Area de Ventas</string>
+    <string name="item_telefono">Item Telefono</string>
+    <string name="tituloApp">Plaplix</string>
+
 </resources>

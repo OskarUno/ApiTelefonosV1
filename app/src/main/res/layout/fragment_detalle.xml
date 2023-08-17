@@ -43,7 +43,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <androidx.constraintlayout.widget.Guideline
                             android:id="@+id/guideline6"
@@ -57,7 +57,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Name Detalle"
+                            android:text="@string/nombre_detalle"
                             android:textAlignment="center"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -70,9 +70,11 @@
                             android:layout_width="0dp"
                             android:layout_height="300dp"
                             android:layout_marginTop="24dp"
+                            android:contentDescription="@string/imagen_telefono"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/tvNameD"
+                            tools:ignore="ImageContrastCheck"
                             tools:src="@tools:sample/avatars" />
 
                         <TextView
@@ -80,7 +82,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="$ 100.000"
+                            android:text="@string/_100_000"
                             android:textAlignment="center"
                             android:textSize="24sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +95,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="Antes"
+                            android:text="@string/antes"
                             android:textAlignment="center"
                             android:textSize="24sp"
                             app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -106,7 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="$ 90.000"
+                            android:text="@string/_90_000"
                             android:textAlignment="textStart"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -120,7 +122,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="Ahora"
+                            android:text="@string/ahora"
                             android:textAlignment="center"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -134,7 +136,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Acepta Crédito"
+                            android:text="@string/acepta_cr_dito"
                             android:textAlignment="center"
                             android:textSize="24sp"
                             android:visibility="invisible"
@@ -150,7 +152,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Sólo Efectivo"
+                            android:text="@string/s_lo_efectivo"
                             android:textAlignment="center"
                             android:textSize="24sp"
                             android:visibility="invisible"
@@ -167,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
                             android:layout_marginBottom="3dp"
-                            android:text="idProducto"
+                            android:text="@string/idproducto"
                             android:visibility="invisible"
                             app:layout_constraintBottom_toTopOf="@+id/imgD"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -198,7 +200,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Contactar al Area de Ventas"
+                        android:text="@string/contactar_al_area_de_ventas"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -214,7 +216,8 @@
                         android:src="@drawable/baseline_email_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tvMsjMail"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/imagen_mail" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -242,7 +245,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        android:text="Descripcion"
+                        android:text="@string/descripcion"
                         android:textAlignment="center"
                         android:textSize="20sp" />
                 </ScrollView>
