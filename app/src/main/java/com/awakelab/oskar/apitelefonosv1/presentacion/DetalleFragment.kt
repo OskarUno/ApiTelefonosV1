@@ -2,7 +2,6 @@ package com.awakelab.oskar.apitelefonosv1.presentacion
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,12 +9,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import coil.load
 import com.awakelab.oskar.apitelefonosv1.databinding.FragmentDetalleBinding
-import kotlinx.coroutines.withTimeout
 
 private const val ARG_PARAM1 = "id"
 
@@ -43,7 +40,6 @@ class DetalleFragment : Fragment() {
         movilVM.getDetalleMovilVM(idParam)
         return binding.root
     }
-
 
     @SuppressLint("SetTextI18n", "IntentReset")
     private fun initListener() {
@@ -79,7 +75,8 @@ class DetalleFragment : Fragment() {
         val para = arrayOf("info@novaera.cl")
         val copia = arrayOf("")
         val asunto = "Consulta " + producto + " id " + idParam
-        val mensaje = "Hola \nVi el movil " + producto + " de codigo " + idParam + " y me gustaria que me contactaran a este correo o al siguiente numero _________ \n\nQuedo atento"
+        val mensaje =
+            "Hola \nVi el movil " + producto + " de codigo " + idParam + " y me gustaria que me contactaran a este correo o al siguiente numero _________ \n\nQuedo atento"
 
         val emailIntent = Intent(Intent.ACTION_SEND)
         Uri.parse("mailto:").also { emailIntent.data = it }
@@ -95,7 +92,6 @@ class DetalleFragment : Fragment() {
         } catch (ex: ActivityNotFoundException) {
             Log.i("Detalle Fragment Email", "Email no enviado")
         }
-
     }
 
 }

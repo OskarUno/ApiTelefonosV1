@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -21,12 +20,12 @@ class AdapterMoviles : RecyclerView.Adapter<AdapterMoviles.ItemMovilesViewHolder
         parent: ViewGroup,
         viewType: Int,
     ): AdapterMoviles.ItemMovilesViewHolder {
-       binding = ItemMovilesBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        binding = ItemMovilesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemMovilesViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-       return listItemMoviles.size
+        return listItemMoviles.size
     }
 
     override fun onBindViewHolder(holder: AdapterMoviles.ItemMovilesViewHolder, position: Int) {
@@ -34,14 +33,14 @@ class AdapterMoviles : RecyclerView.Adapter<AdapterMoviles.ItemMovilesViewHolder
         holder.render(movilItem)
     }
 
-    fun setData(moviles: List<MovilEntity>){
+    fun setData(moviles: List<MovilEntity>) {
         this.listItemMoviles.clear()
         this.listItemMoviles.addAll(moviles)
         notifyDataSetChanged()
     }
 
-
-    class ItemMovilesViewHolder(val moviles : ItemMovilesBinding) :RecyclerView.ViewHolder(moviles.root) {
+    class ItemMovilesViewHolder(val moviles: ItemMovilesBinding) :
+        RecyclerView.ViewHolder(moviles.root) {
         @SuppressLint("SetTextI18n")
         fun render(movilItem: MovilEntity) {
             moviles.tvName.text = movilItem.name
@@ -50,9 +49,8 @@ class AdapterMoviles : RecyclerView.Adapter<AdapterMoviles.ItemMovilesViewHolder
             moviles.cv.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putInt("id", movilItem.id)
-
-            //    MovilViewModel.getDetalleMovilVM(movilItem.id)
-                Navigation.findNavController(moviles.root).navigate(R.id.action_listadoMovilesFragment_to_detalleFragment,bundle)
+                Navigation.findNavController(moviles.root)
+                    .navigate(R.id.action_listadoMovilesFragment_to_detalleFragment, bundle)
             }
         }
 
