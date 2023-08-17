@@ -15,9 +15,8 @@ class Repository(
     private val movilDao: MovilDao,
     private val detalleApi: DetalleApi,
 ) {
-    fun obtenerMovilEntity(): LiveData<List<MovilEntity>> = movilDao.getAllMoviles()
-
     fun obtenerDetalleEntity(id: Int): LiveData<DetalleEntity> = movilDao.getMovil(id)
+    fun obtenerMovilEntity(): LiveData<List<MovilEntity>> = movilDao.getAllMoviles()
 
     suspend fun obtenerMoviles() {
         val respuesta = movilApi.getData()
@@ -46,8 +45,6 @@ class Repository(
 fun MovilDataClass.transEntity(): MovilEntity =
     MovilEntity(this.id, this.name, this.price, this.image)
 
-fun DetalleDataClass.transDetalle(): DetalleEntity =
-    DetalleEntity(
-        this.id, this.name, this.price, this.image, this.description,
-        this.lastPrice, this.credit
-    )
+fun DetalleDataClass.transDetalle(): DetalleEntity = DetalleEntity(
+    this.id, this.name, this.price, this.image, this.description, this.lastPrice, this.credit
+)

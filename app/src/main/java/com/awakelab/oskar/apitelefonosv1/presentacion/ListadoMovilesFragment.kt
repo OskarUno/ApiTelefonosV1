@@ -1,12 +1,11 @@
 package com.awakelab.oskar.apitelefonosv1.presentacion
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.awakelab.oskar.apitelefonosv1.R
 import com.awakelab.oskar.apitelefonosv1.databinding.FragmentListadoMovilesBinding
 
 class ListadoMovilesFragment : Fragment() {
@@ -22,7 +21,7 @@ class ListadoMovilesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-binding = FragmentListadoMovilesBinding.inflate(layoutInflater,container,false)
+        binding = FragmentListadoMovilesBinding.inflate(layoutInflater, container, false)
         initAdapter()
         movilVM.getAllMovilesVM()
         return binding.root
@@ -32,7 +31,7 @@ binding = FragmentListadoMovilesBinding.inflate(layoutInflater,container,false)
         val adapter = AdapterMoviles()
         binding.rv.adapter = adapter
 
-        movilVM.movilLiveData().observe(viewLifecycleOwner){
+        movilVM.movilLiveData().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
     }

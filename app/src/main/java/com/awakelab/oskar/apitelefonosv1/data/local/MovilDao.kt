@@ -5,8 +5,10 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+
 @Dao
 interface MovilDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovil(detalleEntity: DetalleEntity)
 
@@ -17,6 +19,6 @@ interface MovilDao {
     fun getAllMoviles(): LiveData<List<MovilEntity>>
 
     @Query("select * from tabla_movil_detalle where id = :id")
-    fun getMovil(id: Int) : LiveData<DetalleEntity>
+    fun getMovil(id: Int): LiveData<DetalleEntity>
 
 }

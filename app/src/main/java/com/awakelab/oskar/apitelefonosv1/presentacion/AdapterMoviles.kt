@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -15,6 +16,7 @@ class AdapterMoviles : RecyclerView.Adapter<AdapterMoviles.ItemMovilesViewHolder
 
     lateinit var binding: ItemMovilesBinding
     private val listItemMoviles = mutableListOf<MovilEntity>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -48,6 +50,8 @@ class AdapterMoviles : RecyclerView.Adapter<AdapterMoviles.ItemMovilesViewHolder
             moviles.cv.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putInt("id", movilItem.id)
+
+            //    MovilViewModel.getDetalleMovilVM(movilItem.id)
                 Navigation.findNavController(moviles.root).navigate(R.id.action_listadoMovilesFragment_to_detalleFragment,bundle)
             }
         }

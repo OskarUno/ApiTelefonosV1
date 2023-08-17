@@ -3,8 +3,9 @@ package com.awakelab.oskar.apitelefonosv1.data.remote
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/products/
 class MovilRetroFit {
-    //https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/products/
+
     companion object {
         private const val URL_BASE = "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
         fun getRetrofitMovil(): MovilApi {

@@ -28,6 +28,7 @@ class MovilViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getDetalleMovilVM(id: Int?) = viewModelScope.launch {
         if (id != null) {
+            //Obtiene desde Repository
             repository.obtenerDetalleMovil(id)
         }
     }
