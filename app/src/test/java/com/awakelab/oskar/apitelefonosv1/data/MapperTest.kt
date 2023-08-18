@@ -1,7 +1,6 @@
 package com.awakelab.oskar.apitelefonosv1.data
 
 import com.awakelab.oskar.apitelefonosv1.data.local.MovilEntity
-import com.awakelab.oskar.apitelefonosv1.data.remote.DetalleDataClass
 import com.awakelab.oskar.apitelefonosv1.data.remote.MovilDataClass
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -20,6 +19,6 @@ class MapperTest {
         val res = movilDataClass.transEntity()
 
         //Then (Espero este resultado)
-        assertEquals(movilEntity,res)
+        assertEquals(movilEntity, res)
     }
 }
