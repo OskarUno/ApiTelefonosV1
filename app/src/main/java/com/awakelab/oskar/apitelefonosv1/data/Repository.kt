@@ -39,7 +39,7 @@ class Repository(
         }
     }
 }
-
+/*
 fun MovilDataClass.transEntity(): MovilEntity = MovilEntity(
     this.id, this.name, this.price, this.image
 )
@@ -47,3 +47,5 @@ fun MovilDataClass.transEntity(): MovilEntity = MovilEntity(
 fun DetalleDataClass.transDetalle(): DetalleEntity = DetalleEntity(
     this.id, this.name, this.price, this.image, this.description, this.lastPrice, this.credit
 )
+
+*/
